@@ -1,0 +1,21 @@
+{
+  "name": "swagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "sudo apt-get install libfontconfig",
+    "build": "rm -rf ./bin && mkdir ./bin && node index.js && ./node_modules/.bin/html-inline -i ./bin/index.html -o ./bin/api-document.html && ./node_modules/.bin/html-pdf ./bin/api-document.html ./bin/api-document.pdf",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-inline": "^1.2.0",
+    "html-pdf": "^2.1.0"
+  },
+  "dependencies": {
+    "bootprint": "^0.8.5",
+    "bootprint-swagger": "^0.13.1"
+  }
+}
