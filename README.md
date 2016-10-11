@@ -1,1 +1,1 @@
-# swagger-doc
+# s2hp - Swagger to HTML and PDF
