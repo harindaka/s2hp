@@ -32,16 +32,30 @@
         var opts = {
             basedir: outputDir            
         };
-        var inlineHtml = inliner(opts);
+        var inline = inliner(opts);
         var infile = path.join(outputDir, 'index.html');
-        var outfile = path.join(outputDir, 'index-inline.html');
+        var inlineHtmlFile = path.join(outputDir, 'index-inline.html');
 
         var fs = require('fs');
         var input = fs.createReadStream(infile);
-        var output = fs.createWriteStream(outfile);
-        input.pipe(inlineHtml).pipe(output);
+        var output = fs.createWriteStream(inlineHtmlFile);
+        var writeableStream = input.pipe(inline).pipe(output);
 
-        console.log('Done.');
+        writeableStream.on('finish', function(){
+            var pdf = require('html-pdf');
+            var html = fs.readFileSync(inlineHtmlFile).toString('utf-8');
+            
+            var options = { format: 'Letter' };
+            var pdfFile = path.join(outputDir, 'index-inline.pdf');
+         
+            pdf.create(html, options).toFile(pdfFile, function(err, res) {
+                if (err) return console.log(err);
+                console.log('Done.');
+            });  
+        });   
+    })
+    .catch(function(err){
+        console.log(err);
     })
     .done();
 

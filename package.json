@@ -1,6 +1,6 @@
 {
   "name": "s2hp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts a swagger json file to a single html and pdf document",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,11 @@
   },
   "author": "Hemal Harindaka",
   "license": "MIT",
-  "devDependencies": {
-    "html-inline": "^1.2.0",
-    "html-pdf": "^2.1.0"
-  },
   "dependencies": {
     "bootprint": "^0.8.5",
     "bootprint-swagger": "^0.13.1",
-    "html-inline": "^1.2.0"
+    "html-inline": "^1.2.0",
+    "html-pdf": "^2.1.0"
   },
   "bin": {
     "s2hp": "index.js"
