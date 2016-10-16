@@ -1,6 +1,6 @@
 {
   "name": "s2hp",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Converts a swagger json file to a single html and pdf document",
   "main": "index.js",
   "scripts": {

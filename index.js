@@ -1,18 +1,21 @@
 #!/usr/bin/env node
 (function(){
     
+    var pjson = require('./package.json');
+    console.log('Swagger to HTML and PDF (s2hp) v' + pjson.version);
+    console.log('https://github.com/harindaka/s2hp');
+
     if(process.argv.length !== 4){
         console.log("Usage: swagger-doc <swagger json file> <output directory>");
         process.exit();
     }   
-    
+        
     var swaggerJsonFile = process.argv[2];
     var outputDir = process.argv[3]
     
     var path = require('path');
     outputDir = path.resolve(outputDir);
-    swaggerJsonFile = path.resolve(swaggerJsonFile);
-    console.log('Swagger to HTML and PDF (s2hp) https://github.com/harindaka/s2hp');
+    swaggerJsonFile = path.resolve(swaggerJsonFile);    
     console.log('Input: ' + swaggerJsonFile);                
     console.log('Output: ' + outputDir);
     console.log('Processing...');
